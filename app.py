@@ -7,6 +7,8 @@ def translate(word):
     word = word.lower()
     if word in data:
         return data[word]
+    elif word.capitalize() in data:
+        return data[word.capitalize()]
     elif len(get_close_matches(word, data.keys())) > 0:
         yn = input("Did you mean %s instead? Enter Y for yes, or N for no: " % get_close_matches(word, data.keys())[0])
         if yn == 'Y':
